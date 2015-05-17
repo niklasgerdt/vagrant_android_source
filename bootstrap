@@ -1,0 +1,13 @@
+sudo apt-get update
+sudo apt-get install -y openjdk-7-jdk
+sudo apt-get install -y bison g++-multilib git gperf libxml2-utils make zlib1g-dev zip
+sudo cp /vagrant/usbrules /etc/udev/rules.d/51-android.rules
+mkdir /home/vagrant/bin
+PATH=/home/vagrant/bin:$PATH
+curl https://storage.googleapis.com/git-repo-downloads/repo > /home/vagrant/bin/repo
+chmod a+x /home/vagrant/bin/repo
+mkdir /vagrant/repo
+cd /vagrant/repo
+repo init -u https://android.googlesource.com/platform/manifest
+repo sync
+
