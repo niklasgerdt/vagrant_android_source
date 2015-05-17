@@ -25,6 +25,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "16024"]
   end
 
-  config.vm.provision "file", source: "./usbrules", destination: "~/usbrules"
   config.vm.provision "shell", path: "bootstrap"
 end
